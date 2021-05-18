@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+  <!-- <link rel="stylesheet" href="reset.css" /> -->
+  <link rel="stylesheet" href="style.css" />
+  <title>+ Belle qu'Hier</title>
+  <meta name="description" content="Vente en ligne de produits de beauté. Une sélection exclusive de haute qualité livrée en 48h. 
+    5 à 10 échantillons offerts par commande et de nombreux privilèges via la newsletter !" />
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
+</head>
+
+<body>
+  <!-- ------------------------------------------------------HEADER--------------------------------------- -->
+
+  <header>
+    <a href="index.html">
+      <h1 class="text-center my-5">+ Belle qu'Hier</h1>
+    </a>
+    <nav id="navbar_top" class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-around" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html#visage">Visage </a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#corps">Corps</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#cheveux">Cheveux </a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#maquillage">Maquillage</a></li>
+        </ul>
+        <div class="d-flex flex-column flex-lg-row">
+          <!-- BAR DE RECHERCHE -->
+          <form class="form-inline mr-lg-5">
+            <input id="rechercheProduit" class="form-control mr-sm-2" type="search" placeholder="Rechercher"
+              aria-label="Search" />
+            <button id="recherche" class="btn btn-outline-dark my-2 my-sm-0" type="button">Rechercher</button>
+            <!-- <img id="recherche" src="assets/icons/search-outline.svg" alt="search logo" width="50"> -->
+
+          </form>
+          <!-- BAR DE RECHERCHE -->
+          <a href="panier.html" class="d-block d-lg-none mt-2">Panier</a>
+          <a href="panier.html" class="d-none d-lg-block"><img src="assets/icons/shopping-cart-simple.png" width="50"
+              alt="shopping cart" /></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mon affichage de recherch -->
+  <div id="resultRecherche" class="text-center align-items-center"></div>
+  <!-- Mon affichage de recherch -->
+
+    <!-- ------------------------------------------------------PRODUIT--------------------------------------- -->
+
+    <div id="displayProducts">
+        
+    <div class="produits"></div>
+
+    <button class="trash">vider panier entier </button>
+    </div>
+    <!-- ------------------------------------------------------SECTION CADEAU--------------------------------------- -->
+
+    <div id="cadeau" class="container-fluid my-3">
+        <div class="row my-2">
+            <div class="col text-center pt-3">
+                <p>Livraison offerte dès 30€ d'achat</p>
+                <p>5 échantillons offerts par commande</p>
+                <p>Un service client à votre disposition</p>
+            </div>
+        </div>
+    </div>
+    <div id="newsletter" class="container-fluid my-3">
+        <div class="row ">
+            <div class="col text-center py-2">
+                <p>Incrivez-vous à notre newsletter !</p>
+                <input type="email" name="" id="emailNewsletter" />
+                <input type="button" value="S'incrire" class="bg-muted" />
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------------------------------------SECTION FOOTER--------------------------------------- -->
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center my-2">
+                    <a href="#"><img src="assets/icons/iconfinder_square-facebook_317727.png" alt="Icône Facebook"
+                            class="mx-5" /></a>
+                    <a href="#"><img src="assets/icons/iconfinder_Instagram_1298747.png" alt="Icône Instagram"
+                            class="mx-5" /></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center my-2">
+                    <ul class="pl-0">
+                        <li class="d-block d-md-inline mx-5"><a href="#">F.A.Q</a></li>
+                        <li class="d-block d-md-inline mx-5"><a href="#">Service Client</a></li>
+                        <li class="d-block d-md-inline mx-5"><a href="#">CGV/CGU - Crédit</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ------------------------------------------------------TEST JQUERY--------------------------------------- -->
+
+    <!-- <section id="produitsCheveux">
+        <div>
+            <img style="width: 200px" src="./assets/cheveux/cheveux-1.jpeg" />
+            <p>10‎€</p>
+            <button data-name="Curl cream" data-price="10" data-totalprice="" data-cat="cheveux" class="add"
+                data-count="" id="produit1">
+                ajouter
+            </button>
+            <button class="empty" data-name="produit1">retirer</button>
+        </div>
+    </section>
+
+    <section id="produitscorp">
+        <div>
+            <img style="width: 200px" src="./assets/corps/corp-1.jpeg" />
+            <p>15‎€</p>
+            <button data-name="Créme hydratante" data-price="15" data-totalprice="" data-cat="corp" data-count=""
+                class="add" id="produit2">
+                ajouter
+            </button>
+            <button class="empty" data-name="produit2">retirer</button>
+            <button class="goCart"><a href="panier.html">panier</a></button>
+        </div>
+    </section> -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

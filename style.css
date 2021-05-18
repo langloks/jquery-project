@@ -1,0 +1,137 @@
+/* Logo font : BioRhyme*/
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
+/* Subtitles font : Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+/* text font : Slabo 13px */
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme&family=Slabo+13px&display=swap");
+html{ 
+  scroll-behavior: smooth;
+
+}
+body {
+  font-family: "Slabo 13px";
+ 
+}
+h1 {
+  font-family: "BioRhyme";
+  font-size: 50px;
+  color: #8c3333;
+}
+#resultRecherche {
+  font-size: 1.5em;
+  margin:2rem;
+  height: 10vh;
+
+}
+#topnavbar{
+  position: sticky; 
+} 
+h2 {
+  font-family: "Montserrat";
+}
+
+#cadeau {
+  background-color: lightgrey;
+}
+footer img {
+  width: 2rem;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  text-decoration: none;
+  color: black;
+}
+
+#decouvrir{
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration:none;
+  color:black;
+  text-align:center;
+  transition: all 0.2s;
+  border-radius: 10px;
+
+}
+#decouvrir:hover{
+  color:#000000;
+  background-color:#e9e5e5;
+  text-decoration: none;
+  }
+
+.choixproduits button{
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration:none;
+  color:#000000;
+  text-align:center;
+  transition: all 0.2s;
+  border-radius: 10px;
+  }
+  .choixproduits button:hover{
+  color:#000000;
+  background-color:#e9e5e5;
+  }
+.choixproduits button:active{
+  transform: translateY(4px);
+  background-color:#e1dede;
+}
+
+
+  /* Pour que le lien "panier" ait la même couleur que les liens de la ul de la nav.*/
+  nav form + a {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+.prodDesc {
+  /* border: 1px solid grey; */
+  border-radius: 10px;
+  height: 250px;
+  overflow-y: scroll;
+  background-color:#e9e5e5;
+}
+
+.prodDesc::-webkit-scrollbar {
+  display: none;
+}
+
+.prodDesc p {
+  font-size: 0.8rem;
+  margin: 1rem;
+}
+
+.trash{
+  visibility: hidden;
+}
+/* .empty{
+  visibility: hidden;
+} */
+/* Bouton de retour vers le haut */
+#goToTop {
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  z-index: 99;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background-color: #555555;
+  color: #e9e5e5;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+}
+#goToTop:hover {
+  background-color: #e9e5e5;
+  color: #555555;
+}
