@@ -53,64 +53,67 @@
   </header>
 
   <!-- Mon affichage de recherch -->
-  <div id="resultRecherche" class="text-center align-items-center"></div>
+  <div id="resultRecherche" class="text-center align-items-center my-0"></div>
   <!-- Mon affichage de recherch -->
 
-    <!-- ------------------------------------------------------PRODUIT--------------------------------------- -->
+  <!-- ------------------------------------------------------PRODUIT--------------------------------------- -->
 
-    <div id="displayProducts">
-        
-    <div class="produits"></div>
+  <div id="displayProducts" class="container d-flex flex-column">
+    <div class="row d-flex flex-column">
+      <h2 class="text-center">Mon panier</h2>
+      <hr class="w-75">
+    </div>
+    <div id="produits"></div>
 
+    <p id="total" class="text-center border border-black mt-5 rounded col-4 mx-auto"></p>
     <button class="trash">vider panier entier </button>
+  </div>
+  <!-- ------------------------------------------------------SECTION CADEAU--------------------------------------- -->
+
+  <div id="cadeau" class="container-fluid my-3">
+    <div class="row my-2">
+      <div class="col text-center pt-3">
+        <p>Livraison offerte dès 30€ d'achat</p>
+        <p>5 échantillons offerts par commande</p>
+        <p>Un service client à votre disposition</p>
+      </div>
     </div>
-    <!-- ------------------------------------------------------SECTION CADEAU--------------------------------------- -->
-
-    <div id="cadeau" class="container-fluid my-3">
-        <div class="row my-2">
-            <div class="col text-center pt-3">
-                <p>Livraison offerte dès 30€ d'achat</p>
-                <p>5 échantillons offerts par commande</p>
-                <p>Un service client à votre disposition</p>
-            </div>
-        </div>
+  </div>
+  <div id="newsletter" class="container-fluid my-3">
+    <div class="row ">
+      <div class="col text-center py-2">
+        <p>Incrivez-vous à notre newsletter !</p>
+        <input type="email" name="" id="emailNewsletter" />
+        <input type="button" value="S'incrire" class="bg-muted" />
+      </div>
     </div>
-    <div id="newsletter" class="container-fluid my-3">
-        <div class="row ">
-            <div class="col text-center py-2">
-                <p>Incrivez-vous à notre newsletter !</p>
-                <input type="email" name="" id="emailNewsletter" />
-                <input type="button" value="S'incrire" class="bg-muted" />
-            </div>
+  </div>
+  <!-- ------------------------------------------------------SECTION FOOTER--------------------------------------- -->
+
+  <footer>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col text-center my-2">
+          <a href="#"><img src="assets/icons/iconfinder_square-facebook_317727.png" alt="Icône Facebook"
+              class="mx-5" /></a>
+          <a href="#"><img src="assets/icons/iconfinder_Instagram_1298747.png" alt="Icône Instagram" class="mx-5" /></a>
         </div>
+      </div>
+      <div class="row">
+        <div class="col text-center my-2">
+          <ul class="pl-0">
+            <li class="d-block d-md-inline mx-5"><a href="#">F.A.Q</a></li>
+            <li class="d-block d-md-inline mx-5"><a href="#">Service Client</a></li>
+            <li class="d-block d-md-inline mx-5"><a href="#">CGV/CGU - Crédit</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <!-- ------------------------------------------------------SECTION FOOTER--------------------------------------- -->
+  </footer>
 
-    <footer>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col text-center my-2">
-                    <a href="#"><img src="assets/icons/iconfinder_square-facebook_317727.png" alt="Icône Facebook"
-                            class="mx-5" /></a>
-                    <a href="#"><img src="assets/icons/iconfinder_Instagram_1298747.png" alt="Icône Instagram"
-                            class="mx-5" /></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col text-center my-2">
-                    <ul class="pl-0">
-                        <li class="d-block d-md-inline mx-5"><a href="#">F.A.Q</a></li>
-                        <li class="d-block d-md-inline mx-5"><a href="#">Service Client</a></li>
-                        <li class="d-block d-md-inline mx-5"><a href="#">CGV/CGU - Crédit</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+  <!-- ------------------------------------------------------TEST JQUERY--------------------------------------- -->
 
-    <!-- ------------------------------------------------------TEST JQUERY--------------------------------------- -->
-
-    <!-- <section id="produitsCheveux">
+  <!-- <section id="produitsCheveux">
         <div>
             <img style="width: 200px" src="./assets/cheveux/cheveux-1.jpeg" />
             <p>10‎€</p>
@@ -135,7 +138,7 @@
         </div>
     </section> -->
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"

@@ -3,6 +3,8 @@ let button = $(".add");
 let titles= []
 // la bare de recherche (chercher un produit)
 
+
+
 $('#recherche').click(function(){
   var selectRecherche = $('#rechercheProduit').val();
   var titles = $.map($('[title][title!=""]'), function(el) { return el.title });
@@ -53,11 +55,8 @@ else {
   );
    $(`.empty[data-name='${$(this).attr("id")}']`).visible();
 
-  console.log($(this).data("totalprice"));
-  console.log($(this).data("count"));    
-  
-
-
+   let number = localStorage.getItem(`${$(this).attr("id")}Number`);
+   $('#number').html(`${number}x `)
 });
 
 (function($) {
@@ -74,19 +73,16 @@ else {
 }(jQuery));
 
 
-$(".trash").click(function(){
-  localStorage.clear();
-  location.reload();
-  $(".empty").invisible();
-})
-//function pour vider le pannier /  remettre a 0 les compteur
-$(".empty").click(function minus () {
+
+
+
+ function minusEmpty () {
   let prevNum = parseFloat(localStorage.getItem(`${$(this).data("name")}Number`));
  
   if (prevNum > 1){
     let countUpdate = prevNum - 1
     localStorage.setItem(`${$(this).data("name")}Number`, countUpdate );
-    console.log(countUpdate)
+    
   }
   else {
     localStorage.setItem(`${$(this).data("name")}Number`, 0 );
@@ -97,11 +93,76 @@ $(".empty").click(function minus () {
   let itemPrice = parseFloat(localStorage.getItem(`${$(this).data("name")}Price`));
   localStorage.setItem(`${$(this).data("name")}TotalPrice`, prevPrice - itemPrice );
   
-  console.log( (prevPrice - itemPrice))
+ let number = localStorage.getItem(`${$(this).data("name")}Number`)
+ if (number == 0 ) {
+  $('#number').html("");
+}
+else {
+  $('#number').html(`${number}x `)
+}
+}
 
-});
+function minusButton (produit) {
+  // let item = produit;
+
+  let prevNum = parseFloat(localStorage.getItem(`${produit}Number`));
+  let itemPrice = parseFloat(localStorage.getItem(`${produit}Price`));
+  if (prevNum > 1){
+    let countUpdate = prevNum - 1
+    localStorage.setItem(`${produit}Number`, countUpdate );
+    localStorage.setItem(`${produit}TotalPrice`, countUpdate * itemPrice);
+   
+     location.reload();
+  }
+  else {
+    localStorage.setItem(`${produit}Number`, 0 );
+    localStorage.setItem(`${produit}TotalPrice`, 0);
+    localStorage.removeItem(`${produit}Name`)
+     location.reload();
+    // $(`#${produit}`).invisible();
+  }
+
+  let number = localStorage.getItem(`${$(this).data("name")}Number`)
+
+  if (number == 0 ) {
+    $('#number').html("");
+  }
+  else {
+    $('#number').html(`${number}x `)
+  }
+
+}
+
+function plusButton (produit) {
+  // let item = produit;
+
+  let prevNum = parseFloat(localStorage.getItem(`${produit}Number`));
+  let itemPrice = parseFloat(localStorage.getItem(`${produit}Price`));
+
+    let countUpdate = prevNum + 1
+    localStorage.setItem(`${produit}Number`, countUpdate );
+    localStorage.setItem(`${produit}TotalPrice`, countUpdate * itemPrice);
+     location.reload();
+  
+}
+
+$(".empty").click(minusEmpty);
 
 
+
+//function pour vider le pannier /  remettre a 0 les compteur
+// $(".empty").click(minus());
+
+$(".trash").click(function(){
+  localStorage.clear();
+  location.reload();
+  $(".empty").invisible();
+  $('#number').html("");
+
+})
+
+
+let prices = []
 function viewShopping() {
   for (i = 0; i < 25; i++) {
     let itemName = `${"produit" + i + "Name"}`;
@@ -114,52 +175,57 @@ function viewShopping() {
    let  itemTotalPriceValue = localStorage.getItem(itemTotalPrice);
    let  itemPriceValue = localStorage.getItem(itemPrice);
    let  itemNumberValue = localStorage.getItem(itemNumber);
+   let totalPanier 
+ 
+
+   if (itemTotalPriceValue !== null) {
+    prices.push(parseFloat(itemTotalPriceValue));
+   }
 
     if (itemNameValue !== null) {
-      $('.produits').append(`<h2 class="itemPanier">${itemNameValue}</h2> 
-      <button onclick="minus()" id="${itemId}" data-price="${ itemPriceValue}" data-totalPrice="${itemTotalPriceValue}" data-count="${itemNumberValue}">-</button>
+      $('#produits').append(
+      `<div id="${itemId}" class="container "> 
+      <div class="row">
+      
+      </div>
+      <div class="row align-items-center d-flex justify-content-center">
+      <div class="d-flex flex-column">
+      <h3 class="my-4 mx-auto">${itemNameValue}</h3> 
+      <div class="d-flex justify-content-center">
+      <button onclick="minusButton('${itemId}')" data-price="${itemPriceValue}" data-totalPrice="${itemTotalPriceValue}" data-count="${itemNumberValue}" data-name"${itemId}">-</button>
       <button type="disabled">${itemNumberValue}</button>
-      <button onclick="plus()" id="${itemId}" data-price="${ itemPriceValue}" data-totalPrice="${itemTotalPriceValue}" data-count="${itemNumberValue}">+</button>
-      <p>${itemTotalPriceValue}$</p>
-      <img style="width:100px;" src="./assets/items/${'produit'+i+'.jpeg'}">
+      <button onclick="plusButton('${itemId}')" data-price="${itemPriceValue}" data-totalPrice="${itemTotalPriceValue}" data-count="${itemNumberValue}">+</button>
+      </div>
+      <p class="border border-black text-center mt-2">${itemTotalPriceValue}$</p>
+     </div>
+     
+      <img class="col-4"  src="./assets/items/${'produit'+i+'.jpeg'}">
+      </div>
+      
+      </div>
+      </div>
       `)
+
       $(".trash").visible();
     }
+
     if (itemNumberValue > 0 ) {
       $(`.empty[data-name="${'produit'+i}"]`).visible()
     }
     else{
-      $(`.empty[data-name="${'produit'+i}"]`).invisible()
+      $(`.empty[data-name="${'produit'+i}"]`).invisible() 
     }
-  }
- 
+    
 }
 
-// function minus (item){
-//   let prevNum = parseFloat(localStorage.getItem(`${$(this).attr("id")}Number`));
-//   localStorage.setItem(`${item}Number`, (prevNum -= 1))
-// // console.log($(this).attr("id"))
-// }
+const sum = prices.reduce((accumulator, element) => {
+  return accumulator + element;
+}, 0);
+ console.log(sum);
 
-function plus (e){
-  let prevNum = parseFloat(localStorage.getItem(`${$(this).attr("id")}Number`));
-  localStorage.setItem(`${$(this).attr("id")}Number`, (prevNum -= 1))
-
+ $('#total').prepend(`<p class="my-2">total du panier: ${sum}$</p>`)
 }
 
-
-
-
-// function cart() {
-//   for (i = 0; i < itemsNames.length; i++){
-   
-//   let productName = itemsNames[i];
-//   $('.produits').append(`<h2>${productName}</h2>`)
-//   $('h2').append(`<img src="">`)
-// console.log(productName)
-//   }
-  
-  //  $(`<div class="produits"><h2>${productName}</h2></div>`).appendTo( ".produits" );
 
 viewShopping();
 

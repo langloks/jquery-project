@@ -65,7 +65,7 @@ a:hover{
   text-decoration: none;
   }
 
-.choixproduits button{
+ button{
   display:inline-block;
   padding:0.35em 1.2em;
   border:0.1em solid #FFFFFF;
@@ -77,11 +77,11 @@ a:hover{
   transition: all 0.2s;
   border-radius: 10px;
   }
-  .choixproduits button:hover{
+  button:hover{
   color:#000000;
   background-color:#e9e5e5;
   }
-.choixproduits button:active{
+ button:active{
   transform: translateY(4px);
   background-color:#e1dede;
 }
@@ -135,3 +135,13 @@ a:hover{
   background-color: #e9e5e5;
   color: #555555;
 }
+
+
+#displayProducts h2 {
+background-color: #e9e5e5;
+padding: 5vh;
+}
+
+#displayProducts h3 {
+  font-size: 1.5em;;
+  }
